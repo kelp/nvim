@@ -30,8 +30,14 @@ code with different directory conventions.
 # install fzf on macOS
 `$ brew install fzf`
 
-# install ripgrep
+# install fzf on Arch
+`$ pacman -S fzf
+
+# install ripgrep on macOS
 `$ brew install ripgrep`
+
+# install ripgrep on Arch
+`$ pacman -S fzf`
 
 # manage plugins with minpac
 `$ mkdir -p $VIMCONFIG/pack/minpac/opt`
