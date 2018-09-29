@@ -4,7 +4,10 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 # Install the python3 provider
 `$ pip3 install --user --upgrade neovim`
 
-# Install neovim remote
+# Install python-neovim on Arch
+`$ pacman -S python-neovim`
+
+# Install neovim remote on macOS
 `$ pip3 install --user --upgrade neovim-remote`
 
 # Bootstrap
