@@ -17,6 +17,8 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('vim-syntastic/syntastic')
 call minpac#add('sheerun/vim-polyglot')
+call minpac#add('godlygeek/tabular')
+call minpac#add('Valloric/YouCompleteMe')
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight

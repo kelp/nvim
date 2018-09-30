@@ -17,6 +17,14 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 
 `$ yay neovim-remote`
 
+* setup youcompleteme
+* https://valloric.github.io/YouCompleteMe/#mac-os-x
+```
+$ brew install cmake`
+$ cd $HOME/.config/nvim/pack/minpac/start/YouCompleteMe
+$ ./install.py --clang-completer --go-completer
+```
+
 ## Bootstrap
 * Install minpac from: https://github.com/k-takata/minpac
 ```
