@@ -16,7 +16,6 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('vim-syntastic/syntastic')
-call minpac#add('vim-syntastic/syntastic')
 call minpac#add('sheerun/vim-polyglot')
 
 " NERDtree and related plugins
