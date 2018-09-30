@@ -7,20 +7,14 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 # Install neovim remote
 `$ pip3 install --user --upgrade neovim-remote`
 
-# install vim-unimpared
+# Bootstrap
+# Install minpac from: https://github.com/k-takata/minpac
 ```
-$ mkdir -p $VIMCONFIG/pack/bundle/start
-$ cd $VIMCONFIG/pack/bundle/start
-$ git clone https://github.com/tpope/vim-unimpaired.git
+git clone https://github.com/k-takata/minpac.git \
+    ~/.config/nvim/pack/minpac/opt/minpac
 ```
 
-# Install scriptease optional.
-# To load it :packadd vim-scriptease
-```
-$ mkdir -p $VIMCONFIG/pack/bundle/op
-$ cd $VIMCONFIG/pack/bundle/opt
-$ git clone https://github.com/tpope/vim-scriptease.git
-```
+# Notes
 
 # Projectionist plugin
 https://github.com/tpope/vim-projectionist
@@ -33,7 +27,7 @@ Commands like:
 Take you to the appropraite file in the right area. Used to navigate well organized 
 code with different directory conventions.
 
-# install fzf on eacOS
+# install fzf on macOS
 `$ brew install fzf`
 
 # install ripgrep
