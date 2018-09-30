@@ -2,16 +2,23 @@
 Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim)
 
 * Install the python3 provider
+
 `$ pip3 install --user --upgrade neovim`
 
 * Install python-neovim on Arch
+
 `$ pacman -S python-neovim`
 
 * Install neovim remote on macOS
+
 `$ pip3 install --user --upgrade neovim-remote`
 
-# Bootstrap
-# Install minpac from: https://github.com/k-takata/minpac
+* Install neovim-remote on Arch
+
+`$ yay neovim-remote`
+
+## Bootstrap
+* Install minpac from: https://github.com/k-takata/minpac
 ```
 git clone https://github.com/k-takata/minpac.git \
     ~/.config/nvim/pack/minpac/opt/minpac
@@ -31,24 +38,31 @@ Take you to the appropraite file in the right area. Used to navigate well organi
 code with different directory conventions.
 
 * install fzf on macOS
+
 `$ brew install fzf`
 
 * install fzf on Arch
+
 `$ pacman -S fzf
 
 * install ripgrep on macOS
+
 `$ brew install ripgrep`
 
 * install ripgrep on Arch
+
 `$ pacman -S fzf`
 
 * manage plugins with minpac
+
 `$ mkdir -p $VIMCONFIG/pack/minpac/opt`
 
 * Update plugins
+
 `:PackUpdate`
 
 * Clean plugins
+
 `:PackClean`
 
 * Reload config
@@ -58,6 +72,7 @@ code with different directory conventions.
 ```
 
 * generate help for a new plugin
+
 `:helptags ALL`
 
 # Misc
