@@ -32,6 +32,12 @@ $ cd $HOME/.config/nvim/pack/minpac/start/YouCompleteMe
 $ ./install.py --clang-completer --go-completer
 ```
 
+* setup youcompleteme on Aarch
+```
+$ sudo pacman -S clang`
+$ ./install.py --clang-completer --go-completer --system-libclang
+```
+
 ## Bootstrap
 * Install minpac from: https://github.com/k-takata/minpac
 ```

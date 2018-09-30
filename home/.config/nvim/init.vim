@@ -15,14 +15,28 @@ call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('airblade/vim-gitgutter')
+
 " syntax checking for many languages
 call minpac#add('vim-syntastic/syntastic')
 let g:syntastic_python_checkers = ['flake8']
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('godlygeek/tabular')
 call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('scrooloose/nerdcommenter')
+
+" Add a nice indent indicator
 call minpac#add('yggdroot/indentline')
+let g:indentLine_char = '⎸'
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
@@ -63,16 +77,6 @@ set laststatus=2
 
 " vim-bufferline config
 let g:airline#extensions#bufferline#enabled = 1
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " fzm fuzzy finder macOS config and setup
 set rtp+=/usr/local/opt/fzf
@@ -116,6 +120,7 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
+" Enable 24 bit colors if we can
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -127,5 +132,5 @@ colorscheme onedark
 set background=dark
 "colorscheme palenight
 let g:onedark_terminal_italics=1
-let g:indentLine_char = '⎸'
+
 set cursorline
