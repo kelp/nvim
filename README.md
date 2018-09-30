@@ -1,13 +1,13 @@
 # NeoVim Setup notes
 Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim)
 
-# Install the python3 provider
+* Install the python3 provider
 `$ pip3 install --user --upgrade neovim`
 
-# Install python-neovim on Arch
+* Install python-neovim on Arch
 `$ pacman -S python-neovim`
 
-# Install neovim remote on macOS
+* Install neovim remote on macOS
 `$ pip3 install --user --upgrade neovim-remote`
 
 # Bootstrap
@@ -19,7 +19,7 @@ git clone https://github.com/k-takata/minpac.git \
 
 # Notes
 
-# Projectionist plugin
+* Projectionist plugin
 https://github.com/tpope/vim-projectionist
 lets you load up a .projections.json file that maps a source tree.
 Commands like:
@@ -30,35 +30,38 @@ Commands like:
 Take you to the appropraite file in the right area. Used to navigate well organized 
 code with different directory conventions.
 
-# install fzf on macOS
+* install fzf on macOS
 `$ brew install fzf`
 
-# install fzf on Arch
+* install fzf on Arch
 `$ pacman -S fzf
 
-# install ripgrep on macOS
+* install ripgrep on macOS
 `$ brew install ripgrep`
 
-# install ripgrep on Arch
+* install ripgrep on Arch
 `$ pacman -S fzf`
 
-# manage plugins with minpac
+* manage plugins with minpac
 `$ mkdir -p $VIMCONFIG/pack/minpac/opt`
 
-# Update plugins
+* Update plugins
 `:PackUpdate`
 
-# Clean plugins
+* Clean plugins
 `:PackClean`
 
-# Reload config
+* Reload config
 ```
 :write
 :source %
 ```
 
-# generate help for a new plugin
+* generate help for a new plugin
 `:helptags ALL`
+
+# Misc
+* Powerline does not currently work with neovim https://github.com/powerline/powerline/issues/1287 (also it has terrible documentation)
 
 # TODO
 * Setup linters for go and python
