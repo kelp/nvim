@@ -19,6 +19,7 @@ call minpac#add('vim-syntastic/syntastic')
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('godlygeek/tabular')
 call minpac#add('Valloric/YouCompleteMe')
+call minpac#add('scrooloose/nerdcommenter')
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
