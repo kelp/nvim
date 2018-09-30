@@ -15,28 +15,31 @@ call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('airblade/vim-gitgutter')
+" syntax checking for many languages
 call minpac#add('vim-syntastic/syntastic')
+let g:syntastic_python_checkers = ['flake8']
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('godlygeek/tabular')
 call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('yggdroot/indentline')
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-" call minpac#add('tiagofumo/vim-nerdtree-syntax-highlight')
+call minpac#add('tiagofumo/vim-nerdtree-syntax-highlight')
 " https://github.com/Xuyuanp/nerdtree-git-plugin
-" call minpac#add('Xuyuanp/nerdtree-git-plugin')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
 " https://github.com/scrooloose/nerdtree
-" call minpac#add('scrooloose/nerdtree')
+call minpac#add('scrooloose/nerdtree')
 " key bind to open NERDTree
-"map <C-n> :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDtree is really slow without these
 " let NERDTreeHighlightCursorline = 0
-" let g:NERDTreeSyntaxEnabledExtensions = ['c', 'css', 'c++', 'go', 'h', 'js', 'md', 'py', 'rb']
+let g:NERDTreeSyntaxEnabledExtensions = ['c', 'css', 'c++', 'go', 'h', 'js', 'md', 'py', 'rb']
 " https://github.com/Shougo/defx.nvim
-call minpac#add('Shougo/defx.nvim') 
-"https://github.com/mhinz/vim-startify
+"call minpac#add('Shougo/defx.nvim') 
+" https://github.com/mhinz/vim-startify
 call minpac#add('mhinz/vim-startify')
 
 " Nice utf-8 icons for vim-airline, must load after plugins that require
@@ -124,3 +127,5 @@ colorscheme onedark
 set background=dark
 "colorscheme palenight
 let g:onedark_terminal_italics=1
+let g:indentLine_char = '⎸'
+set cursorline
