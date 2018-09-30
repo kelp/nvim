@@ -19,14 +19,15 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 
 * setup youcompleteme
 * https://valloric.github.io/YouCompleteMe/#mac-os-x
-```
-$ brew install cmake`
+
+`$ brew install cmake`
 
 Or
+
 `$ sudo pacman -S install cmake`
 
 Then
-
+```
 $ cd $HOME/.config/nvim/pack/minpac/start/YouCompleteMe
 $ ./install.py --clang-completer --go-completer
 ```
