@@ -60,6 +60,7 @@ code with different directory conventions.
 # TODO
 * Setup linters for go and python
 * Sync my theme between vim-airline and powerlevel9k
+    https://github.com/edkolev/promptline.vim
 
 # Notes
 * Powerline does not currently work with neovim https://github.com/powerline/powerline/issues/1287 (also it has terrible documentation)
