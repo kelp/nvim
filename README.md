@@ -18,6 +18,7 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 `$ yay neovim-remote`
 
 * setup youcompleteme
+XXX Not using this anymore
 * https://valloric.github.io/YouCompleteMe/#mac-os-x
 
 `$ brew install cmake`
@@ -44,6 +45,17 @@ $ ./install.py --clang-completer --go-completer --system-libclang
 git clone https://github.com/k-takata/minpac.git \
     ~/.config/nvim/pack/minpac/opt/minpac
 ```
+
+* Trying out vim-plug instead
+* Install Plug from: https://github.com/junegunn/vim-plug
+```
+$ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+Deplete doesn't seem to work after switching to vim-plug unless you run this:
+`
+UpdateRemotePlugins
+`
 
 # Notes
 

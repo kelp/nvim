@@ -1,17 +1,9 @@
 " kelp's Neovim Config
 
-" Package Management {{{
-" TODO: Consider or test vim-plug for package management
-" Minpac has to be loaded before any other minpac commands.
-" Otherwise I'd alphabetize these folds.
-" minpac to manage plugins
-packadd minpac 
-call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-" 
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
-
+" Initialize Package Management {{{
+" Load Plug this has to be done first.
+" Required:
+call plug#begin()
 " }}}
 
 " Appearance {{{
@@ -21,27 +13,26 @@ set cursorline  " put a line where the cursor is
 
 " Creates a nice default start screen
 " https://github.com/mhinz/vim-startify
-call minpac#add('mhinz/vim-startify')
+Plug 'mhinz/vim-startify'
 
 " Nice utf-8 icons for vim-airline, must load after plugins that require
 " these fonts
-call minpac#add('ryanoasis/vim-devicons')
+Plug 'ryanoasis/vim-devicons'
 
-" themes have to be opt to avoid a race in loading
-"call minpac#add('drewtempelmeyer/palenight.vim', {'type': 'opt'})
-call minpac#add('joshdick/onedark.vim', {'type': 'opt'})
-call minpac#add('edkolev/promptline.vim', {'type': 'opt'})
+" The onedark color theme
+Plug 'joshdick/onedark.vim'
+Plug 'edkolev/promptline.vim'
 
 " Put a nice colored powerline like bar at the bottom
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " This requires a terminal configured with Nerd Font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 set laststatus=2
 
 " Add a nice indent vertical indicator
-call minpac#add('yggdroot/indentline')
+Plug 'yggdroot/indentline'
 
 let g:indentLine_char = '⎸'
 
@@ -62,11 +53,9 @@ endif
 
 " Disable oneark, then load it. This seems to work around a race that
 " causes a ton of errors.
-packadd! onedark.vim
-"packadd! palenight.vim
-colorscheme onedark
+"packadd! onedark.vim
+"colorscheme onedark
 set background=dark
-"colorscheme palenight
 let g:onedark_terminal_italics=1
 
 if has('nvim')
@@ -107,18 +96,18 @@ set autoread
 
 " File Management {{{
 " A bunch of commands for using git
-call minpac#add('tpope/vim-fugitive')
+Plug 'tpope/vim-fugitive'
 
 " Show's git status in airline
-call minpac#add('airblade/vim-gitgutter')
+Plug 'airblade/vim-gitgutter'
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-call minpac#add('tiagofumo/vim-nerdtree-syntax-highlight')
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
 " https://github.com/Xuyuanp/nerdtree-git-plugin
-call minpac#add('Xuyuanp/nerdtree-git-plugin')
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 " https://github.com/scrooloose/nerdtree
-call minpac#add('scrooloose/nerdtree')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " key bind to open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -135,8 +124,8 @@ let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 " https://github.com/Shougo/defx.nvim
-
-"call minpac#add('Shougo/defx.nvim') 
+" TODO: Need to try this out
+"Plug 'Shougo/defx.nvim' 
 " fzm fuzzy finder macOS config and setup
 set rtp+=/usr/local/opt/fzf
 nnoremap <C-p> :<C-u>FZF<CR>
@@ -146,19 +135,19 @@ nnoremap <C-p> :<C-u>FZF<CR>
 " Language Specific {{{
 "
 " Some tools for writing vim plugins
-call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
+Plug 'tpope/vim-scriptease'
 
 " Sets editorconfig project / langauge specific settings if they exist
-call minpac#add('editorconfig/editorconfig-vim')
+Plug 'editorconfig/editorconfig-vim'
 
 " Go Lang
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-call minpac#add('fatih/vim-go')
+Plug 'fatih/vim-go', { 'for': 'go' }
 let g:syntastic_go_checkers = ['golint', 'govet']
 
 " Python
 " jedi support for deoplete
-call minpac#add('zchee/deoplete-jedi')
+"Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 augroup vimrc-python
   autocmd!
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
@@ -210,23 +199,23 @@ set showmatch       " highlight matching [{()}]<Paste>
 " Syntax and Code Completion {{{
 "
 " Code completion plugin
-call minpac#add('Shougo/deoplete.nvim')
+Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
 " Show incline documentation
 let g:deoplete#sources#jedi#show_docstring = 1
 
 " A linter, fixer and completion plugin
-call minpac#add('w0rp/ale')
+Plug 'w0rp/ale'
 " Don't enable completion with ale, only use it's linter
 " let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 
 
 " Syntax and indentation for many languages
-call minpac#add('sheerun/vim-polyglot')
+Plug 'sheerun/vim-polyglot'
 
 " Syntax checking for many languages
-call minpac#add('vim-syntastic/syntastic')
+Plug 'vim-syntastic/syntastic'
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -250,11 +239,11 @@ syntax on       " enable syntax highlighting
 " Text Formatting {{{
 set encoding=utf-8
 " Add some key mappings to manage code omments 
-call minpac#add('scrooloose/nerdcommenter')
+Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
 " :Tab helps to line up text
-call minpac#add('godlygeek/tabular')
+Plug 'godlygeek/tabular'
 
 set tabstop=4       " show a tab as 4 spaces
 set softtabstop=4   " number of spaces a tab means when editing
@@ -271,4 +260,13 @@ set modelines=1     " look for a modeline on the last line of the file
 
 " }}}
 
+" Finalize Plugins {{{
+" Required:
+call plug#end()
+" Color scheme has to be loaded after plugin initilization
+if !exists('g:not_finish_vimplug')
+	colorscheme onedark
+endif
+" }}}
+"
 " vim:foldmethod=marker:foldlevel=0
