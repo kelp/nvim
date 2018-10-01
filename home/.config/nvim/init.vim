@@ -210,7 +210,7 @@ set showmatch       " highlight matching [{()}]<Paste>
 "
 " Code completion plugin
 call minpac#add('Shougo/deoplete.nvim')
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " A linter, fixer and completion plugin
 call minpac#add('w0rp/ale')
