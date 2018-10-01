@@ -1,5 +1,3 @@
-set encoding=utf-8
-
 " load minpac to manage plugins
 packadd minpac 
 call minpac#init()
@@ -16,6 +14,7 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('airblade/vim-gitgutter')
 
+" appearance setting
 " syntax checking for many languages
 call minpac#add('vim-syntastic/syntastic')
 let g:syntastic_python_checkers = ['flake8']
@@ -29,14 +28,34 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-call minpac#add('sheerun/vim-polyglot')
-call minpac#add('godlygeek/tabular')
-call minpac#add('Valloric/YouCompleteMe')
-call minpac#add('scrooloose/nerdcommenter')
+syntax on       " enable syntax highlighting
+set number      " enable line numbers
+set showcmd     " show the last command entered
+set cursorline  " put a line where the cursor is
 
+call minpac#add('sheerun/vim-polyglot')
+call minpac#add('Valloric/YouCompleteMe')
+
+" formatting
+set encoding=utf-8
+call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('godlygeek/tabular')
 " Add a nice indent indicator
 call minpac#add('yggdroot/indentline')
 let g:indentLine_char = '⎸'
+set tabstop=4       " show a tab as 4 spaces
+set softtabstop=4   " number of spaces a tab means when editing
+set expandtab       " tab key inputs spaces
+filetype indent on  " load filetype-specific indent files
+set wildmenu        " visual autocomplete for the command menu
+set lazyredraw      " redraw only when we need to.
+set showmatch       " highlight matching [{()}]<Paste>
+set incsearch       " search as characters are entered
+set hlsearch        " highlight matches
+set foldenable      " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+
 
 " NERDtree and related plugins
 " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
@@ -107,8 +126,6 @@ if has('nvim') && executable('nvr')
 let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
-set number
-syntax on
 
 " Disables setting a background color
 " without this we get kind of a grey washed out look
@@ -133,4 +150,3 @@ set background=dark
 "colorscheme palenight
 let g:onedark_terminal_italics=1
 
-set cursorline
