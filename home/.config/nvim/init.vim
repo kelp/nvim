@@ -55,6 +55,16 @@ set hlsearch        " highlight matches
 set foldenable      " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
+set colorcolumn=80  " mark column 80
+
+" Language specific settings
+" Go Lang
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
+" Python
 
 
 " NERDtree and related plugins
