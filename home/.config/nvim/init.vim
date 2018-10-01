@@ -157,7 +157,8 @@ call minpac#add('fatih/vim-go')
 let g:syntastic_go_checkers = ['golint', 'govet']
 
 " Python
-" TODO: Consider/test jedi-vim for python
+" jedi support for deoplete
+call minpac#add('zchee/deoplete-jedi')
 augroup vimrc-python
   autocmd!
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
@@ -211,6 +212,8 @@ set showmatch       " highlight matching [{()}]<Paste>
 " Code completion plugin
 call minpac#add('Shougo/deoplete.nvim')
 let g:deoplete#enable_at_startup = 1
+" Show incline documentation
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " A linter, fixer and completion plugin
 call minpac#add('w0rp/ale')
