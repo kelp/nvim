@@ -15,10 +15,6 @@ set cursorline  " put a line where the cursor is
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
 
-" Nice utf-8 icons for vim-airline, must load after plugins that require
-" these fonts
-Plug 'ryanoasis/vim-devicons'
-
 " The onedark color theme
 Plug 'joshdick/onedark.vim'
 Plug 'edkolev/promptline.vim'
@@ -29,12 +25,17 @@ Plug 'vim-airline/vim-airline-themes'
 " This requires a terminal configured with Nerd Font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
+let g:airline#extensions#virtualenv#enabled = 1
 set laststatus=2
 
 " Add a nice indent vertical indicator
 Plug 'yggdroot/indentline'
 
 let g:indentLine_char = '⎸'
+
+" Nice utf-8 icons for vim-airline, must load after plugins that require
+" these fonts
+Plug 'ryanoasis/vim-devicons'
 
 " Disable setting a background color without this we get kind of a grey 
 " washed out look
@@ -158,8 +159,6 @@ augroup END
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
 
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
 
 " JavaScript 
 " use `eslint` (and only eslint)
@@ -268,5 +267,5 @@ if !exists('g:not_finish_vimplug')
 	colorscheme onedark
 endif
 " }}}
-"
+
 " vim:foldmethod=marker:foldlevel=0
