@@ -264,8 +264,14 @@ let g:ale_set_baloons = 1
 let g:airline#extensions#ale#enabled = 1
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
-let g:ale_open_list = 1          " open the error list while errors exist
-let g:ale_sign_column_always = 1 " keep the sign column open
+let g:ale_open_list = 1             " open the error list while errors exist
+let g:ale_keep_list_window_open = 1 " keep the list window open
+" Prevents having to exit twice with list window always open
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
+let g:ale_sign_column_always = 1    " keep the sign column open
 let g:ale_warn_about_trailing_whitespace = 1
 let g:ale_warn_about_trailing_blank_lines = 1
 let g:ale_cursor_detail = 0
