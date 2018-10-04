@@ -21,6 +21,9 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 XXX Not using this anymore
 * https://valloric.github.io/YouCompleteMe/#mac-os-x
 
+* Install gocode for go completions
+`$ go get -u github.com/mdempsky/gocode`
+
 `$ brew install cmake`
 
 Or

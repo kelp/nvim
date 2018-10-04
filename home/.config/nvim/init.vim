@@ -115,7 +115,7 @@ nnoremap <C-p> :<C-u>FZF<CR>
 "
 " Go Lang
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-let g:syntastic_go_checkers = ['golint', 'govet']
+let g:ale_linters = { 'go': ['gofmt'] }
 
 " Python
 augroup vimrc-python
@@ -124,23 +124,19 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
-" configure syntastic for python
-let g:syntastic_python_checkers=['python', 'flake8']
-let g:ale_linters = { 'python': ['flake8'], }
-let g:ale_linters = { 'python3': ['flake8'], }
-let g:ale_fixers = { 'python3': ['autopep8'], }
+let g:ale_fixers = { 'python': ['autopep8'], }
+let g:ale_linters = { 'python': ['flake8'] }
 " enable python virtualenv support in airline
 let g:airline#extensions#virtualenv#enabled = 1
+" show doc strings in python
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " JavaScript 
 " use `eslint` for JavaScript
 let g:ale_linters = { 'javascript': ['eslint'], }
 
-" ALE key mappings in the style of unimpaired-next Plugin
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
+" Zsh
+let g:ale_linters = { 'zsh': ['shell'] }
 
 " }}}
 
@@ -168,6 +164,12 @@ set showmatch       " highlight matching [{()}]
 set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
 " set mouse=a         " enabl mouse scrolling
+
+" Config for UtiSnips
+" TODO consider better configs here, learn more about using this
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " }}}
 
@@ -207,6 +209,8 @@ call plug#begin()
 
 Plug 'Shougo/deoplete.nvim'                       " Code completion plugin
   Plug 'zchee/deoplete-jedi', { 'for': 'python' } " jedi support for deoplete
+  Plug 'zchee/deoplete-go', { 'for': 'go' }       " support for go
+  "Plug 'mdempsky/gocode', { 'for': 'go' }         " required by deoplete-go
 
 " Put a nice colored powerline like bar at the bottom
 Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
@@ -223,9 +227,10 @@ Plug 'tpope/vim-fugitive'       " A bunch of commands for using git
 Plug 'tpope/vim-scriptease'     " Some tools for writing vim plugins
 Plug 'w0rp/ale'                 " A linter, fixer and completion plugin
 Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
-Plug 'vim-syntastic/syntastic'  " Syntax checking for many languages
 Plug 'scrooloose/nerdcommenter' " smart handling of commenting
 Plug 'godlygeek/tabular'        " :Tab helps to line up text
+Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
 " fzf fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -240,9 +245,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':  'NERDTreeToggle' }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
-" Currently unused
-"
-"Plug 'Shougo/defx.nvim'
 " Finish 
 " Required:
 call plug#end()
@@ -250,32 +252,33 @@ call plug#end()
 " }}}
 
 " Syntax, Linting and Code Completion {{{
-"
-let g:deoplete#enable_at_startup = 0
-" Show incline documentation
-let g:deoplete#sources#jedi#show_docstring = 1
 
-" Enable Ale completion
-let g:ale_completion_enabled = 1
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+
+let g:ale_enabled = 1 " enablee/disable ale
+" Enable/Disable Ale completion - disabled currently
+let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
+let g:ale_set_baloons = 1
 let g:airline#extensions#ale#enabled = 1
+" Show 5 lines of errors (default: 10)
+let g:ale_list_window_size = 5
+let g:ale_open_list = 1          " open the error list while errors exist
+let g:ale_sign_column_always = 1 " keep the sign column open
+let g:ale_warn_about_trailing_whitespace = 1
+let g:ale_warn_about_trailing_blank_lines = 1
+let g:ale_cursor_detail = 0
+let g:ale_sign_style_error='✗'
+let g:ale_sign_style_warning='⚠'
+let g:ale_sign_error='✗'
+let g:ale_sign_warning='⚠'
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-" Syntastic config
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
+" ALE key mappings in the style of unimpaired-next Plugin
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
 
 syntax on       " enable syntax highlighting
 " }}}
