@@ -163,6 +163,7 @@ set smartcase       " case sensitive matches when search includes uppercase
 set showmatch       " highlight matching [{()}]
 set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
+set inccommand=nosplit  " show search and replace in real time
 " set mouse=a         " enabl mouse scrolling
 
 " Config for UtiSnips
