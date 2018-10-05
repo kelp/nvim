@@ -68,11 +68,6 @@ let g:startify_fortune_use_unicode = 1  " Of course use utf-8!
 let g:startify_change_to_dir = 1        " Change to dir of file
 let g:startify_change_to_vcs_root = 1   " Change to vcs dir of file
 
-" set different curors for different modes
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-  \,sm:block-blinkwait175-blinkoff150-blinkon175
-
 " }}}
 
 " Autocmd Rules {{{
