@@ -222,13 +222,15 @@ command! PU PlugUpdate | PlugUpgrade
 " Required:
 call plug#begin()
 
-Plug 'Shougo/deoplete.nvim'                       " Code completion plugin
+Plug 'Shougo/deoplete.nvim'                     " Code completion plugin
   Plug 'zchee/deoplete-jedi', { 'for': 'python' } " jedi support for deoplete
-  Plug 'zchee/deoplete-go', { 'for': 'go' }       " support for go
-  "Plug 'mdempsky/gocode', { 'for': 'go' }         " required by deoplete-go
+  Plug 'zchee/deoplete-go', { 'for': 'go' }      " support for go
+  "Plug 'mdempsky/gocode', { 'for': 'go' }       " required by deoplete-go
 
-" Put a nice colored powerline like bar at the bottom
+" This saves shell prompt configs to be simialr to airline
+" Usage: :PromptlineSnapshot ~/promptline.sh
 Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
+" Put a nice colored powerline like bar at the bottom
 Plug 'vim-airline/vim-airline'              " powerline like bar
   Plug 'vim-airline/vim-airline-themes'     " themes
   Plug 'ryanoasis/vim-devicons'             " utf-8 icons for vim-airline
@@ -238,7 +240,7 @@ Plug 'fatih/vim-go', { 'for': 'go' } " go lang support
 Plug 'mhinz/vim-startify'       " Creates a nice default start screen
 Plug 'joshdick/onedark.vim'     " The onedark color theme
 Plug 'yggdroot/indentline'      " Add a nice indent vertical indicator
-Plug 'tpope/vim-fugitive'       " A bunch of commands for using git
+Plug 'tpope/vim-fugitive'       " A bunch of commands for git
 Plug 'tpope/vim-scriptease'     " Some tools for writing vim plugins
 Plug 'w0rp/ale'                 " A linter, fixer and completion plugin
 Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
@@ -268,7 +270,7 @@ call plug#end()
 
 " Syntax, Linting and Code Completion {{{
 
-" Enable deoplete at startup
+" Enable deoplete code completion at startup
 let g:deoplete#enable_at_startup = 1
 
 let g:ale_enabled = 1 " enablee/disable ale
