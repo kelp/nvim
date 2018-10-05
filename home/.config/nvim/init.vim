@@ -54,6 +54,25 @@ if has('nvim')
 highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
+" vim-startify configs
+let g:startify_bookmarks = [ { 'c':
+  \ '$HOME/.homesick/repos/nvim/home/.config/nvim/init.vim'},
+  \ { 'ze': '$HOME/.homesick/repos/dotfiles/home/.zshenv'},
+  \ { 'zr': '$HOME/.homesick/repos/dotfiles/home/.zshrc'}]
+
+let g:startify_commands = [
+  \ {'h': 'help reference'},
+  \ {'hq': 'help quickref'},
+  \ ]
+let g:startify_fortune_use_unicode = 1  " Of course use utf-8!
+let g:startify_change_to_dir = 1        " Change to dir of file
+let g:startify_change_to_vcs_root = 1   " Change to vcs dir of file
+
+" set different curors for different modes
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+  \,sm:block-blinkwait175-blinkoff150-blinkon175
+
 " }}}
 
 " Autocmd Rules {{{
