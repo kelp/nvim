@@ -123,6 +123,14 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 " }}}
 
+" Git and Related Plugins {{{
+" Limit what VCS Signify looks for
+let g:signify_vcs_list = [ 'git' ]
+" Update signs in real time
+let g:signify_realtime=1
+"
+" }}}
+
 " Language Specific {{{
 "
 " Programming language configs
@@ -234,7 +242,7 @@ Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
 Plug 'vim-airline/vim-airline'              " powerline like bar
   Plug 'vim-airline/vim-airline-themes'     " themes
   Plug 'ryanoasis/vim-devicons'             " utf-8 icons for vim-airline
-  Plug 'airblade/vim-gitgutter'             " git status in airline
+  Plug 'mhinz/vim-signify'                  " Show vcs changes per line
 
 Plug 'fatih/vim-go', { 'for': 'go' } " go lang support
 Plug 'mhinz/vim-startify'       " Creates a nice default start screen
