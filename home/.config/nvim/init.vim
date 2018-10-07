@@ -187,7 +187,7 @@ set showmatch       " highlight matching [{()}]
 set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
 set inccommand=nosplit  " show search and replace in real time
-" set mouse=a         " enabl mouse scrolling
+set mouse=a         " enable mouse scrolling
 
 " Config for UtiSnips
 " TODO consider better configs here, learn more about using this
