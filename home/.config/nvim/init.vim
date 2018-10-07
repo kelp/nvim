@@ -215,7 +215,8 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent !\curl -fLo ~/.local/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !\curl -fLo ~/.local/nvim/autoload/plug.vim --create-dirs 
+  \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -239,7 +240,7 @@ Plug 'Shougo/deoplete.nvim'                     " Code completion plugin
   Plug 'zchee/deoplete-go', { 'for': 'go' }      " support for go
   "Plug 'mdempsky/gocode', { 'for': 'go' }       " required by deoplete-go
 
-" This saves shell prompt configs to be simialr to airline
+" This genrates shell prompt configs simialr to airline
 " Usage: :PromptlineSnapshot ~/promptline.sh
 Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
 " Put a nice colored powerline like bar at the bottom
