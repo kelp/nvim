@@ -27,6 +27,7 @@ set showbreak=↪\
 " This requires a terminal configured with Nerd Font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
+let g:airline#extensions#tabline#enabled = 1 " Enable tab line at top
 set laststatus=2
 
 let g:indentLine_char = '⎸'
@@ -194,6 +195,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" let g:comfortable_motion_scroll_down_key = "j"
+" let g:comfortable_motion_scroll_up_key = "k"
+
 " }}}
 
 " Plugin Management {{{
@@ -252,6 +256,7 @@ Plug 'tpope/vim-fugitive'       " A bunch of commands for git
 Plug 'tpope/vim-scriptease'     " Some tools for writing vim plugins
 Plug 'w0rp/ale'                 " A linter, fixer and completion plugin
 Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
+Plug 'thaerkh/vim-workspace'  " Session management
 Plug 'scrooloose/nerdcommenter' " smart handling of commenting
 Plug 'godlygeek/tabular'        " :Tab helps to line up text
 Plug 'SirVer/ultisnips'
@@ -262,6 +267,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Sets editorconfig project / langauge specific settings if they exist
 Plug 'editorconfig/editorconfig-vim'
+" Plug 'yuttie/comfortable-motion.vim'
 " pip requirements file support
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
@@ -286,7 +292,8 @@ let g:ale_enabled = 1 " enablee/disable ale
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_set_baloons = 1
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1   " Integrate airline with ale
+let airline#extensions#ale#show_line_numbers = 1
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
 let g:ale_open_list = 1             " open the error list while errors exist
