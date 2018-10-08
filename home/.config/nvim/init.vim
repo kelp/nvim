@@ -165,6 +165,10 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " use `eslint` for JavaScript
 let g:ale_linters = { 'javascript': ['eslint'], }
 
+" Terraform
+let g:terraform_align = 1           " Use vim-terraform indents
+let g:terraform_fold_sections = 1   " Auto fold terraform
+
 " Zsh
 let g:ale_linters = { 'zsh': ['shell'] }
 
@@ -269,6 +273,7 @@ Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
 Plug 'thaerkh/vim-workspace'  " Session management
 Plug 'scrooloose/nerdcommenter' " smart handling of commenting
 Plug 'godlygeek/tabular'        " :Tab helps to line up text
+Plug 'hashivim/vim-terraform'   " terraform support for vim
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 
