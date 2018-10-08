@@ -28,6 +28,13 @@ set showbreak=↪\
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1 " Enable tab line at top
+let g:airline#extensions#clock#auto = 0
+function! AirlineInit()
+  let g:airline_section_z = airline#section#create(['clock', g:airline_symbols.space, g:airline_section_z])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+
 set laststatus=2
 
 let g:indentLine_char = '⎸'
@@ -188,6 +195,7 @@ set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
 set inccommand=nosplit  " show search and replace in real time
 set mouse=a         " enable mouse scrolling
+set clipboard=unnamed   " vim clipboard copies to system clipboard
 
 " Config for UtiSnips
 " TODO consider better configs here, learn more about using this
@@ -246,6 +254,7 @@ Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
 " Put a nice colored powerline like bar at the bottom
 Plug 'vim-airline/vim-airline'              " powerline like bar
   Plug 'vim-airline/vim-airline-themes'     " themes
+  Plug 'enricobacis/vim-airline-clock'      " a clock for airline
   Plug 'ryanoasis/vim-devicons'             " utf-8 icons for vim-airline
   Plug 'mhinz/vim-signify'                  " Show vcs changes per line
 
