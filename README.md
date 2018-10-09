@@ -1,5 +1,7 @@
 # NeoVim Setup notes
-Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim)
+Some of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim)
+
+## Bootstrap
 
 * Install the python3 provider
 
@@ -17,45 +19,12 @@ Most of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim
 
 `$ yay neovim-remote`
 
-* setup youcompleteme
-XXX Not using this anymore
-* https://valloric.github.io/YouCompleteMe/#mac-os-x
-
 * Install gocode for go completions
 `$ go get -u github.com/mdempsky/gocode`
 
-`$ brew install cmake`
+* Copy Neovim configs to $HOME/.config/nvim/init.vim and run nvim, it should install all the plugins on first run.
 
-Or
-
-`$ sudo pacman -S install cmake`
-
-Then
-```
-$ cd $HOME/.config/nvim/pack/minpac/start/YouCompleteMe
-$ ./install.py --clang-completer --go-completer
-```
-
-* setup youcompleteme on Aarch
-```
-$ sudo pacman -S clang`
-$ ./install.py --clang-completer --go-completer --system-libclang
-```
-
-## Bootstrap
-* Install minpac from: https://github.com/k-takata/minpac
-```
-git clone https://github.com/k-takata/minpac.git \
-    ~/.config/nvim/pack/minpac/opt/minpac
-```
-
-* Trying out vim-plug instead
-* Install Plug from: https://github.com/junegunn/vim-plug
-```
-$ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-Deplete doesn't seem to work after switching to vim-plug unless you run this:
+If Deoplete isn't working run this:
 `
 UpdateRemotePlugins
 `
@@ -107,17 +76,13 @@ code with different directory conventions.
 :source %
 ```
 
-* generate help for a new plugin
-
-`:helptags ALL`
-
 # Misc
 * Powerline does not currently work with neovim https://github.com/powerline/powerline/issues/1287 (also it has terrible documentation)
 
 # TODO
-* Setup linters for go and python
+~~* Setup linters for go and python ~~
 * Sync my theme between vim-airline and powerlevel9k
+~~* Fix bootstrap, it should auto install vim-pack, load the modules, and make them all work~~
 
 # Notes
 * Powerline does not currently work with neovim https://github.com/powerline/powerline/issues/1287 (also it has terrible documentation)
-* Fix bootstrap, it should auto install vim-pack, load the modules, and make them all work
