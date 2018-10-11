@@ -345,6 +345,7 @@ let g:NERDSpaceDelims = 1
 
 set tabstop=4       " show a tab as 4 spaces
 set softtabstop=4   " number of spaces a tab means when editing
+set shiftwidth=4    " tab key inserts 4 spaces
 set expandtab       " tab key inputs spaces
 filetype plugin indent on  " load filetype-specific indent files
 set wildmenu        " visual autocomplete for the command menu
