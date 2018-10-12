@@ -1,6 +1,6 @@
 " kelp's Neovim Config
 " https://github.com/kelp/nvim
-"
+
 " Startup {{{
 "
 " Things that have to go first. Other fold titles are alphabetized.
@@ -217,7 +217,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Plugins are installed here with vim-plug
 "
 " Test if vim-plug is installed
-let vimplug_exists=expand('~/.local/nvim/autoload/plug.vim')
+let vimplug_exists=expand('~/.local/share/nvim/site/autoload/plug.vim')
 
 " Install vim-plug if it's not already installed
 if !filereadable(vimplug_exists)
@@ -227,7 +227,7 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent !\curl -fLo ~/.local/nvim/autoload/plug.vim --create-dirs 
+  silent !\curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs 
   \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
 
