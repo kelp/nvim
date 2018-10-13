@@ -219,7 +219,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Test if vim-plug is installed
 let vimplug_exists=expand('~/.local/nvim/autoload/plug.vim')
 
-" If vim-plug isn't installed, install it
+" Install vim-plug if it's not already installed
 if !filereadable(vimplug_exists)
   if !executable("curl")
     echoerr "You have to install curl or first install vim-plug yourself!"
@@ -247,22 +247,22 @@ command! PU PlugUpdate | PlugUpgrade
 " Required:
 call plug#begin()
 
-Plug 'Shougo/deoplete.nvim'                     " Code completion plugin
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' } " jedi support for deoplete
-  Plug 'zchee/deoplete-go', { 'for': 'go' }      " support for go
-  "Plug 'mdempsky/gocode', { 'for': 'go' }       " required by deoplete-go
+Plug 'Shougo/deoplete.nvim'                         " Code completion plugin
+  Plug 'zchee/deoplete-jedi', { 'for': 'python' }   " Jedi support for deoplete
+  Plug 'zchee/deoplete-go', { 'for': 'go' }         " Support for go
+  "Plug 'mdempsky/gocode', { 'for': 'go' }          " Required by deoplete-go
 
 " This genrates shell prompt configs simialr to airline
 " Usage: :PromptlineSnapshot ~/promptline.sh
 Plug 'edkolev/promptline.vim', { 'on': 'PromptlineSnapshot'}
 " Put a nice colored powerline like bar at the bottom
-Plug 'vim-airline/vim-airline'              " powerline like bar
-  Plug 'vim-airline/vim-airline-themes'     " themes
-  Plug 'enricobacis/vim-airline-clock'      " a clock for airline
+Plug 'vim-airline/vim-airline'              " Powerline like bar
+  Plug 'vim-airline/vim-airline-themes'     " Themes
+  Plug 'enricobacis/vim-airline-clock'      " A clock for airline
   Plug 'ryanoasis/vim-devicons'             " utf-8 icons for vim-airline
   Plug 'mhinz/vim-signify'                  " Show vcs changes per line
 
-Plug 'fatih/vim-go', { 'for': 'go' } " go lang support
+Plug 'fatih/vim-go', { 'for': 'go' } " Go lang support
 Plug 'mhinz/vim-startify'       " Creates a nice default start screen
 Plug 'joshdick/onedark.vim'     " The onedark color theme
 Plug 'yggdroot/indentline'      " Add a nice indent vertical indicator
@@ -270,10 +270,10 @@ Plug 'tpope/vim-fugitive'       " A bunch of commands for git
 Plug 'tpope/vim-scriptease'     " Some tools for writing vim plugins
 Plug 'w0rp/ale'                 " A linter, fixer and completion plugin
 Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
-Plug 'thaerkh/vim-workspace'  " Session management
-Plug 'scrooloose/nerdcommenter' " smart handling of commenting
+Plug 'thaerkh/vim-workspace'    " Session management
+Plug 'scrooloose/nerdcommenter' " Smart handling of commenting
 Plug 'godlygeek/tabular'        " :Tab helps to line up text
-Plug 'hashivim/vim-terraform'   " terraform support for vim
+Plug 'hashivim/vim-terraform'   " Terraform support for vim
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 
@@ -343,19 +343,19 @@ set encoding=utf-8
 let g:NERDSpaceDelims = 1
 
 
-set tabstop=4       " show a tab as 4 spaces
-set softtabstop=4   " number of spaces a tab means when editing
-set shiftwidth=4    " tab key inserts 4 spaces
-set expandtab       " tab key inputs spaces
-filetype plugin indent on  " load filetype-specific indent files
-set wildmenu        " visual autocomplete for the command menu
-set lazyredraw      " redraw only when we need to.
-set foldenable      " enable folding
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
-set foldmethod=indent   " fold based on indent level
-set colorcolumn=80  " mark column 80
-set modelines=1     " look for a modeline on the last line of the file
+set tabstop=4               " Show a tab as 4 spaces
+set softtabstop=4           " Number of spaces a tab means when editing
+set shiftwidth=4            " Tab key inserts 4 spaces
+set expandtab               " Tab key inputs spaces
+filetype plugin indent on   " Load filetype-specific indent files
+set wildmenu                " Visual autocomplete for the command menu
+set lazyredraw              " Redraw only when we need to.
+set foldenable              " Enable folding
+set foldlevelstart=10       " Open most folds by default
+set foldnestmax=10          " 10 nested fold max
+set foldmethod=indent       " Fold based on indent level
+set colorcolumn=80          " mark column 80
+set modelines=1             " Read a modeline on the last line of the file
 
 " }}}
 
