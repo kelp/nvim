@@ -147,6 +147,10 @@ let g:signify_realtime=1
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 let g:ale_linters = { 'go': ['gofmt'] }
 
+" Markdown
+" vim-polyglot installs vim-markdown
+let g:vim_markdown_conceal = 0  " Disable concealing
+
 " Python
 augroup vimrc-python
   autocmd!
@@ -198,7 +202,8 @@ set showmatch       " highlight matching [{()}]
 set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
 set inccommand=nosplit  " show search and replace in real time
-set mouse=a         " enable mouse scrolling
+" Need to figure out what mouse mode I prefer
+"set mouse=a         " enable mouse scrolling
 set clipboard=unnamed   " vim clipboard copies to system clipboard
 
 " Config for UtiSnips
