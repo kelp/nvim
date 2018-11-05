@@ -23,14 +23,20 @@ Managed with [Homeshick](https://github.com/andsens/homeshick)
 * Install gocode for go completions
 `$ go get -u github.com/mdempsky/gocode`
 
-* Copy Neovim configs to $HOME/.config/nvim/init.vim and run nvim, it should install all the plugins on first run.
+Bootstrap my [dotfiles](https://github.com/kelp/dotfiles/) and bring in the
+nvim castle.
 
-If Deoplete isn't working run this:
+neovim should auto-install all necessary plugins on first boot after that.
+
+Deoplete may complain that you need to run:
 `
 UpdateRemotePlugins
 `
 
 # Notes
+
+My [init.vim](https://github.com/kelp/nvim/blob/master/home/.config/nvim/init.vim)
+is fairly well documented now, removing need for much in this README.
 
 * Projectionist plugin
 https://github.com/tpope/vim-projectionist
@@ -59,18 +65,6 @@ code with different directory conventions.
 
 `$ pacman -S fzf`
 
-* manage plugins with minpac
-
-`$ mkdir -p $VIMCONFIG/pack/minpac/opt`
-
-* Update plugins
-
-`:PackUpdate`
-
-* Clean plugins
-
-`:PackClean`
-
 * Reload config
 ```
 :write
@@ -86,6 +80,3 @@ code with different directory conventions.
 * Sync my theme between vim-airline and powerlevel9k
 
 ~~* Fix bootstrap, it should auto install vim-pack, load the modules, and make them all work~~
-
-# Notes
-* Powerline does not currently work with neovim https://github.com/powerline/powerline/issues/1287 (also it has terrible documentation)
