@@ -18,7 +18,7 @@ endif
 set number      " enable line numbers
 set showcmd     " show the last command entered
 set cursorline  " put a line where the cursor is
-set list        " show invisible characters
+"set list        " show invisible characters
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:␣
 set showbreak=↪\ 
 " TODO figure out how to change the color of extra characters
