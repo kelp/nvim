@@ -1,6 +1,8 @@
 # NeoVim Setup notes
 Some of this comes from [Modern Vim](https://pragprog.com/book/modvim/modern-vim)
-Managed with [Homeshick](https://github.com/andsens/homeshick)
+
+This is a [homeshick](https://github.com/andsens/homeshick) castle containing my 
+Neovim configs.
 
 ## Bootstrap
 
