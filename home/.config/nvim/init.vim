@@ -59,7 +59,7 @@ set background=dark
 let g:onedark_terminal_italics=1
 
 if has('nvim')
-highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
 " vim-startify configs
@@ -182,13 +182,13 @@ let g:ale_linters = { 'zsh': ['shell'] }
 "
 " Prevent running nvim inside of nvim terminal
 if has('nvim') && executable('nvr')
-let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
 " make esc work in nvim terminal mode
 if has('nvim')
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <C-v><Esc> <Esc>
 endif
 
 " Searching
@@ -201,7 +201,9 @@ set smartcase       " case sensitive matches when search includes uppercase
 set showmatch       " highlight matching [{()}]
 set splitbelow      " open new splits on the bottom
 set splitright      " open new splits on the right
-set inccommand=nosplit  " show search and replace in real time
+if has('nvim')
+    set inccommand=nosplit  " show search and replace in real time
+endif
 " Need to figure out what mouse mode I prefer
 "set mouse=a         " enable mouse scrolling
 set clipboard=unnamed   " vim clipboard copies to system clipboard
