@@ -143,8 +143,13 @@ let g:signify_realtime=1
 "
 " Programming language configs
 "
+" Fish Shell
+autocmd FileType fish compiler fish 
+autocmd FileType fish setlocal textwidth=79 foldmethod=expr
+
 " Go Lang
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+    \ softtabstop=4
 let g:ale_linters = { 'go': ['gofmt'] }
 
 " Markdown
@@ -281,6 +286,7 @@ Plug 'thaerkh/vim-workspace'    " Session management
 Plug 'scrooloose/nerdcommenter' " Smart handling of commenting
 Plug 'godlygeek/tabular'        " :Tab helps to line up text
 Plug 'hashivim/vim-terraform'   " Terraform support for vim
+Plug 'dag/vim-fish'             " Fish shell support
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 
