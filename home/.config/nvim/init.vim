@@ -9,6 +9,10 @@ if has('vim_starting')
   set nocompatible
 endif
 
+if $SHELL =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
 " }}}
 
 " Appearance {{{
