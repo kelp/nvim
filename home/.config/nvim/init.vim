@@ -176,8 +176,10 @@ let g:airline#extensions#virtualenv#enabled = 1
 let g:deoplete#sources#jedi#show_docstring = 1
 
 " JavaScript 
-" use `eslint` for JavaScript
+" use `eslint` for JavaScript and Vue
 let g:ale_linters = { 'javascript': ['eslint'], }
+let g:ale_linter_alias = { 'vue': ['vue', 'javascript'], }
+let g:ale_linters = { 'vue': ['eslint', 'vls'], }
 
 " Terraform
 let g:terraform_align = 1           " Use vim-terraform indents
@@ -286,6 +288,7 @@ Plug 'yggdroot/indentline'      " Add a nice indent vertical indicator
 Plug 'tpope/vim-fugitive'       " A bunch of commands for git
 Plug 'tpope/vim-scriptease'     " Some tools for writing vim plugins
 Plug 'w0rp/ale'                 " A linter, fixer and completion plugin
+  Plug 'posva/vim-vue'          " Vue.js Syntax
 Plug 'sheerun/vim-polyglot'     " Syntax and indentation for many languages
 Plug 'thaerkh/vim-workspace'    " Session management
 Plug 'scrooloose/nerdcommenter' " Smart handling of commenting
