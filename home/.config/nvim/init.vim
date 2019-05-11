@@ -148,6 +148,9 @@ let g:signify_realtime=1
 "
 " Programming language configs
 "
+let g:ale_linters = {}
+let g:ale_fixers = {}
+
 " Fish Shell
 autocmd FileType fish compiler fish 
 autocmd FileType fish setlocal textwidth=79 foldmethod=expr
@@ -155,7 +158,7 @@ autocmd FileType fish setlocal textwidth=79 foldmethod=expr
 " Go Lang
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
     \ softtabstop=4
-let g:ale_linters = { 'go': ['gofmt'] }
+let g:ale_linters.go = { 'go': ['gofmt'] }
 
 " Markdown
 " vim-polyglot installs vim-markdown
@@ -168,8 +171,8 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
-let g:ale_fixers = { 'python': ['autopep8'], }
-let g:ale_linters = { 'python': ['flake8'] }
+let g:ale_fixers.python = ['autopep8']
+let g:ale_linters.python =  ['flake8']
 " enable python virtualenv support in airline
 let g:airline#extensions#virtualenv#enabled = 1
 " show doc strings in python
@@ -177,16 +180,17 @@ let g:deoplete#sources#jedi#show_docstring = 1
 
 " JavaScript 
 " use `eslint` for JavaScript and Vue
-let g:ale_linters = { 'javascript': ['eslint'], }
+let g:ale_linters.javascript = ['prettier']
+let g:ale_fixers.javascript = ['prettier', 'eslint']
 let g:ale_linter_alias = { 'vue': ['vue', 'javascript'], }
-let g:ale_linters = { 'vue': ['eslint', 'vls'], }
+let g:ale_linters.vue = ['prettier', 'vls']
 
 " Terraform
 let g:terraform_align = 1           " Use vim-terraform indents
 let g:terraform_fold_sections = 1   " Auto fold terraform
 
 " Zsh
-let g:ale_linters = { 'zsh': ['shell'] }
+let g:ale_linters.zsh = ['shell']
 
 " }}}
 
